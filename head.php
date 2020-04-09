@@ -8,9 +8,11 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
   </head>
   <body>
-
+  <div id="wrapper">
 
 
 <div class="container-fluid">    
@@ -30,10 +32,13 @@
         <a class="nav-link" href="list.php">リスト</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="fgetcsv.php">CSVアップロード</a>
+        <a class="nav-link" href="imp.php">CSVアップロード</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="db.php">Database</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="config.php">設定</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
