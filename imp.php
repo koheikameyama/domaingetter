@@ -1,5 +1,20 @@
 <?php
 include "head.php";
+
+function stra($url) {
+  $ch = curl_init($url);
+  curl_setopt($ch, CURLOPT_HEADER, true);    // we want headers
+  curl_setopt($ch, CURLOPT_NOBODY, true);    // we don't need body
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+  curl_setopt($ch, CURLOPT_TIMEOUT,2);
+  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+  $output = curl_exec($ch);
+  $httpcode = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
+  curl_close($ch);
+
+  //echo 'HTTP code: ' . $httpcode;
+    echo "<td>".$httpcode."</td>"; 
+}
 /* HTML特殊文字をエスケープする関数 */
 function h($str) {
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
@@ -61,6 +76,37 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
         try {
             $fp = fopen($tmp_name, 'rb');
             while ($row = fgetcsv($fp)) {
+		
+				
+		 //10列目のデータを抜き出し、カラムを追加しておきおたい。
+				// echo "<td>".$url."</td>";
+				
+				$url=$row[10];
+				echo $row[10];
+		/*//URLをパースして分解する
+        $parse_url=parse_url($url);
+
+        //$parse_url["host"]にドメイン・サブドメインの部分がパースされて格納される
+        $ar_host = array_reverse(explode('.',$parse_url["host"]));
+        $ht = array_reverse(explode('.',$parse_url["scheme"]));
+        $ar_host[1]=$ar_host[1].'.'.$ar_host[0];
+        unset($ar_host[0]);
+
+        //配列を結合する
+        $url_merge = array_merge($ht, $ar_host);
+        $hs="://";
+        $hs2=".";
+        $hs3="/";
+        $pieces = [$url_merge[0],$hs, $url_merge[2],$hs2, $url_merge[1],$hs3];
+        $urs=implode($pieces);
+		//echo $url."<br>";
+     	$row[10]=$urls;*/
+				
+				
+				
+				
+				
+				
                 if ($row === array(null)) {
                     // 空行はスキップ
                     continue;
@@ -109,14 +155,24 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>CSV to MySQL importation test</title>
-</head>
-<body>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<br>
+<br>
+
+<div id="RadioButtons1">
+  <input type="radio" name="RadioButtons1" id="Radio1">
+  <label for="Radio1">追記</label>
+  <input type="radio" name="RadioButtons1" id="Radio2">
+  <label for="Radio2">追記＋重複チェック</label>
+
+</div>
 <?php if (isset($msg)): ?>
   <fieldset>
     <legend>Result</legend>
     <span style="color:<?=h($msg[0])?>;"><?=h($msg[1])?></span>
-  </fieldset>
+</fieldset>
 <?php endif; ?>
   <form enctype="multipart/form-data" method="post" action="">
     <fieldset>
