@@ -16,7 +16,7 @@
 <script src="jQueryAssets/jquery-1.11.1.min.js"></script>
 <script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
 	<link href="css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
-	<script src="js/jquery-3.3.1.min.js"></script>
+
   <script src="js/popper.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>

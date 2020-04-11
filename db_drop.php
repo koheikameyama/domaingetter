@@ -16,8 +16,8 @@ if(!$result) {
 
 
 //結果セットを解放
-$result->free();
+//$result->free();
  
 // データベース切断
-$pdo->close();
+//$pdo->close();
 ?>

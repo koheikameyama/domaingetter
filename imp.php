@@ -80,10 +80,11 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
 				
 		 //10列目のデータを抜き出し、カラムを追加しておきおたい。
 				// echo "<td>".$url."</td>";
-				
-				$url=$row[10];
+				print_r($row);
+				echo "！<br>";
 				echo $row[10];
-		/*//URLをパースして分解する
+	
+		//URLをパースして分解する
         $parse_url=parse_url($url);
 
         //$parse_url["host"]にドメイン・サブドメインの部分がパースされて格納される
@@ -100,7 +101,7 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
         $pieces = [$url_merge[0],$hs, $url_merge[2],$hs2, $url_merge[1],$hs3];
         $urs=implode($pieces);
 		//echo $url."<br>";
-     	$row[10]=$urls;*/
+     	$row[24]=$urls;
 				
 				
 				

@@ -24,8 +24,8 @@ try{
 <div class="container-fluid mb-2">
 
 	  <div class="row">
-	    <div class="col-4">コンテンツをここに配置します</div>
-	    <div class="col-4">コンテンツをここに配置します</div>
+	    <div class="col-4"></div>
+	    <div class="col-4"></div>
 	    <div class="col-4"><form type="button" class="btn btn-info"　method="post" action="db_drop.php">データベース削除<input type="submit" name="s" value="実行"></form></div>
 	   </div>
 </div>
@@ -49,7 +49,7 @@ try{
 		    echo "<td>".$row['COL7']."</td>";
 		    echo "<td>".$row['COL8']."</td>";
 		    echo "<td>".$row['COL 9']."</td>";
-        echo "<td>".$row['COL 10']."</td>";
+        echo "<td>".$row['COL10']."</td>";
         echo "<td>".$row['COL 11']."</td>";
 		    echo "<td>".$row['COL 12']."</td>";
 		    echo "<td>".$row['COL 13']."</td>";
