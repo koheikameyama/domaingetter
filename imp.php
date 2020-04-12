@@ -80,9 +80,9 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
 				
 		 //10列目のデータを抜き出し、カラムを追加しておきおたい。
 				// echo "<td>".$url."</td>";
-				print_r($row);
-				echo "！<br>";
-				echo $row[10];
+				#print_r($row);
+				
+			
 	
 		//URLをパースして分解する
         $parse_url=parse_url($url);
@@ -100,10 +100,13 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
         $hs3="/";
         $pieces = [$url_merge[0],$hs, $url_merge[2],$hs2, $url_merge[1],$hs3];
         $urs=implode($pieces);
-		//echo $url."<br>";
-     	$row[24]=$urls;
 				
-				
+		//最後尾に正規化したデータをpush
+		array_push($row, $urls);
+		print_r($row);
+				echo $row[10];
+				echo "！<br>";
+			
 				
 				
 				
@@ -112,7 +115,7 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
                     // 空行はスキップ
                     continue;
                 }
-                if (count($row) !== 23) {
+                if (count($row) !== 24) {
                     // カラム数が異なる無効なフォーマット
                     throw new RuntimeException('Invalid column detected');
                 }
