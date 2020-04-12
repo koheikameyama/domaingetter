@@ -69,7 +69,7 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
                 PDO::ATTR_EMULATE_PREPARES => false,
             )
         );
-        $stmt = $pdo->prepare('INSERT INTO TABLE1 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        $stmt = $pdo->prepare('INSERT INTO TABLE1 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
 
         /* トランザクション処理 */
         $pdo->beginTransaction();
@@ -79,10 +79,16 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
 		
 				
 		 //10列目のデータを抜き出し、カラムを追加しておきおたい。
-				// echo "<td>".$url."</td>";
-				#print_r($row);
-				
-			
+		$row[4]	=NULL;
+		$row[6]	=NULL;
+		$row[10]=NULL;
+		$row[11]=NULL;
+		$row[12]=NULL;
+		$row[13]=NULL;
+
+
+
+		$url=$row[9];
 	
 		//URLをパースして分解する
         $parse_url=parse_url($url);
@@ -99,13 +105,12 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
         $hs2=".";
         $hs3="/";
         $pieces = [$url_merge[0],$hs, $url_merge[2],$hs2, $url_merge[1],$hs3];
-        $urs=implode($pieces);
+        $url=implode($pieces);
 				
 		//最後尾に正規化したデータをpush
-		array_push($row, $urls);
+		array_push($row, $url);
 		print_r($row);
-				echo $row[10];
-				echo "！<br>";
+		echo "<br>";
 			
 				
 				
