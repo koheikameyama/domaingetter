@@ -76,41 +76,56 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
         try {
             $fp = fopen($tmp_name, 'rb');
             while ($row = fgetcsv($fp)) {
-		
 				
-		 //10列目のデータを抜き出し、カラムを追加しておきおたい。
-		$row[4]	=NULL;
-		$row[6]	=NULL;
-		$row[10]=NULL;
-		$row[11]=NULL;
-		$row[12]=NULL;
-		$row[13]=NULL;
+				//カンマが含まれてたら除去
+				$i=0;
+				
+				while($i<23){
+					
+					//echo $row[$i];
+					$row[$i] = str_replace(',',".",$row[$i]);
 
+					//echo "<br>";
+					$i++;
+					
+					}
+		/* $row[0]	=NULL;
+		$row[1]	=NULL;*/
 
 
 		$url=$row[9];
-	
+		echo $url;
 		//URLをパースして分解する
         $parse_url=parse_url($url);
+		$main_sub="sakura";
 
         //$parse_url["host"]にドメイン・サブドメインの部分がパースされて格納される
         $ar_host = array_reverse(explode('.',$parse_url["host"]));
         $ht = array_reverse(explode('.',$parse_url["scheme"]));
         $ar_host[1]=$ar_host[1].'.'.$ar_host[0];
         unset($ar_host[0]);
-
+		#print_r ($ar_host);
+		if ($ar_host[3]=$main_sub){
+			    $url_merge = array_merge($ht, $ar_host);
+        		$hs="://";
+        		$hs2=".";
+        		$hs3="/";
+        		$pieces = [$url_merge[0],$hs,$url_merge[3],$hs2, $url_merge[2],$hs2, $url_merge[1],$hs3];
+		}
+		else {
         //配列を結合する
-        $url_merge = array_merge($ht, $ar_host);
-        $hs="://";
-        $hs2=".";
-        $hs3="/";
-        $pieces = [$url_merge[0],$hs, $url_merge[2],$hs2, $url_merge[1],$hs3];
-        $url=implode($pieces);
-				
+         		$url_merge = array_merge($ht, $ar_host);
+         		$hs="://";
+         		$hs2=".";
+         		$hs3="/";
+        		$pieces = [$url_merge[0],$hs, $url_merge[2],$hs2, $url_merge[1],$hs3];
+		}
+		$url=implode($pieces);
 		//最後尾に正規化したデータをpush
 		array_push($row, $url);
-		print_r($row);
-		echo "<br>";
+				print_r($row);
+		//print_r($row);
+		//echo "<br>";
 			
 				
 				
@@ -167,28 +182,32 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<br>
-<br>
 
-<div id="RadioButtons1">
-  <input type="radio" name="RadioButtons1" id="Radio1">
-  <label for="Radio1">追記</label>
-  <input type="radio" name="RadioButtons1" id="Radio2">
-  <label for="Radio2">追記＋重複チェック</label>
 
-</div>
+
 <?php if (isset($msg)): ?>
-  <fieldset>
+<fieldset>
     <legend>Result</legend>
     <span style="color:<?=h($msg[0])?>;"><?=h($msg[1])?></span>
 </fieldset>
 <?php endif; ?>
+
+
+	
+	
+
   <form enctype="multipart/form-data" method="post" action="">
     <fieldset>
-      <legend>Select File</legend>
-      Filename(CSV is only supported): <input type="file" name="upfile" /><br />
-      <input type="submit" value="Upload" />
+
+
+  <div class="form-check">
+    <input type="file" name="upfile" class="form-check-input" id="exampleCheck1">
+   
+  </div><br><br><br>
+  <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
     </fieldset>
-  </form>
+</form>
+<br>
+<br>
 
 <?php include("./footer.php");?>

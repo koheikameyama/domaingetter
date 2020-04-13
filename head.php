@@ -15,7 +15,8 @@
 <link href="jQueryAssets/jquery.ui.button.min.css" rel="stylesheet" type="text/css">
 <script src="jQueryAssets/jquery-1.11.1.min.js"></script>
 <script src="jQueryAssets/jquery.ui-1.10.4.button.min.js"></script>
-	<link href="css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css">
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <script src="js/popper.min.js"></script>
     <link rel="stylesheet" href="style.css">
