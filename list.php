@@ -12,7 +12,7 @@ function stra($url) {
   curl_close($ch);
 
   //echo 'HTTP code: ' . $httpcode;
-    echo "<td>".$httpcode."</td>"; 
+    return $httpcode; 
 }
 
 //DBに接続する。
@@ -60,19 +60,37 @@ try{
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
         echo "<tr>";   
-		echo "<td>".$i."</td>";
+		echo "<td>".$row['COL 1']."</td>";
         $url = $row['COL10']."<br>";
         echo "<td>".$url."</td>";
         //ステータスコードを表示させる関数
-        stra($url);
+        //stra($url);
 		$url = $row['COL24']."<br>";
         echo "<td>".$url."</td>";
 
         //ステータスコードを表示させる関数
-        stra($url);
+        $tom=stra($url);
+		  echo "<td>".$tom."</td>";
 
-         echo "</tr>";
-         if($i==999){
+		if(stra($url)==0){
+
+	try{	
+  	$pdo2 = new PDO($dnsinfo,$USER,$PW);
+	$sql2 = "INSERT INTO PRE (url_r,move_date,service) VALUES (:url_r,:move_date, :service)";
+	$stmt2 = $pdo2->prepare($sql2);
+	$params2 = array(':url_r' => $row['COL24'],':move_date' => date("Y/m/d H:i:s"), ':service' => 'SAKURA_MAIN');
+	print_r($params2);echo "<br>"; 
+	$stmt2->execute($params2);
+	//$res = "";
+			echo "<td>元気ですか！</td>"; 
+	}catch(Exception $e){
+    echo $e->getMessage();
+}
+		  }
+
+		 echo "</tr>"; 
+		  
+         if($i==99999){
          break;
         }
 	$i++;

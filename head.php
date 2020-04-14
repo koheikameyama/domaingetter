@@ -38,6 +38,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="#">トップページ <span class="sr-only">(current)</span></a>
       </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="pre_list.php">取得可能リスト</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="list.php">リスト</a>
       </li>

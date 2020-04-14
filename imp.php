@@ -103,10 +103,15 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
         $ar_host = array_reverse(explode('.',$parse_url["host"]));
         $ht = array_reverse(explode('.',$parse_url["scheme"]));
         $ar_host[1]=$ar_host[1].'.'.$ar_host[0];
+		
         unset($ar_host[0]);
-		#print_r ($ar_host);
-		if ($ar_host[3]=$main_sub){
+		
+		if ($ar_host[2]==$main_sub){
+			//print_r ($ar_host);
+			//print_r($ht);
+			//print_r($ar_host);
 			    $url_merge = array_merge($ht, $ar_host);
+				
         		$hs="://";
         		$hs2=".";
         		$hs3="/";
@@ -123,9 +128,9 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
 		$url=implode($pieces);
 		//最後尾に正規化したデータをpush
 		array_push($row, $url);
-				print_r($row);
 		//print_r($row);
-		//echo "<br>";
+		print_r($row);
+		echo "!<br>";
 			
 				
 				

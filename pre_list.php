@@ -23,7 +23,7 @@ $dnsinfo= "mysql:dbname=manabou_list;host=mysql2105.xserver.jp;charset=utf8";
 
 try{
   $pdo = new PDO($dnsinfo,$USER,$PW);
-	$sql = "SELECT DISTINCT COL24 FROM TABLE1";
+	$sql = "SELECT * FROM PRE";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute(null);
 	$res = "";
@@ -46,13 +46,10 @@ try{
 
 <table class="table table-striped table-inverse table-responsive">
   <thead class="thead-inverse">
-    <tr>
-      <th>No</th>
-      <th>URL</th>
-      <th>ステータスコード</th>
-      <th>正規化URL</th>
-      <th>ステータスコード</th>
-    </tr>
+	  <tr>
+	  
+	  </tr>
+
     </thead>
     <tbody>
 
@@ -60,19 +57,16 @@ try{
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
         echo "<tr>";   
-		echo "<td>".$i."</td>";
-        $url = $row['COL10']."<br>";
-        echo "<td>".$url."</td>";
-        //ステータスコードを表示させる関数
-        stra($url);
-		$url = $row['COL24']."<br>";
-        echo "<td>".$url."</td>";
 
-        //ステータスコードを表示させる関数
-        stra($url);
+
+
+        echo "<td>".$row['move_date']."</td>";
+        echo "<td>".$row['url_r']."</td>";
+
+ 
 
          echo "</tr>";
-         if($i==999){
+         if($i==99999){
          break;
         }
 	$i++;

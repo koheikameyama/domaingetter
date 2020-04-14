@@ -41,28 +41,28 @@ try{
 
         echo "<tr>";   
 		echo "<td>".$row['COL 1']."</td>";
-		echo "<td>".$row['COL 2']."</td>";
-		echo "<td>".$row['COL 3']."</td>";
-		echo "<td>".$row['COL 4']."</td>";
-        echo "<td>".$row['COL 5']."</td>";
-        echo "<td>".$row['COL6']."</td>";
-		echo "<td>".$row['COL7']."</td>";
-		echo "<td>".$row['COL8']."</td>";
+		//echo "<td>".$row['COL 2']."</td>";
+		//echo "<td>".$row['COL 3']."</td>";
+		//echo "<td>".$row['COL 4']."</td>";
+        //echo "<td>".$row['COL 5']."</td>";
+        //echo "<td>".$row['COL6']."</td>";
+		//echo "<td>".$row['COL7']."</td>";
+		//echo "<td>".$row['COL8']."</td>";
 		echo "<td>".$row['COL 9']."</td>";
-        echo "<td>".$row['COL10']."</td>";
-        echo "<td>".$row['COL 11']."</td>";
-		echo "<td>".$row['COL 12']."</td>";
-		echo "<td>".$row['COL 13']."</td>";
-		echo "<td>".$row['COL 14']."</td>";
-        echo "<td>".$row['COL 15']."</td>";
-        echo "<td>".$row['COL 16']."</td>";
-		echo "<td>".$row['COL 17']."</td>";
-		echo "<td>".$row['COL 18']."</td>";
-		echo "<td>".$row['COL 19']."</td>";
-        echo "<td>".$row['COL 20']."</td>";
-        echo "<td>".$row['COL 21']."</td>";
-        echo "<td>".$row['COL 23']."</td>";
-		echo "<td>".$row['COL24']."</td>";
+        echo "<td>".$row['COL10']."→".$row['COL24']."</td>";
+        //echo "<td>".$row['COL 11']."</td>";
+		//echo "<td>".$row['COL 12']."</td>";
+		//echo "<td>".$row['COL 13']."</td>";
+		//echo "<td>".$row['COL 14']."</td>";
+       // echo "<td>".$row['COL 15']."</td>";
+        //echo "<td>".$row['COL 16']."</td>";
+		//echo "<td>".$row['COL 17']."</td>";
+		//echo "<td>".$row['COL 18']."</td>";
+		//echo "<td>".$row['COL 19']."</td>";
+        //echo "<td>".$row['COL 20']."</td>";
+       // echo "<td>".$row['COL 21']."</td>";
+       // echo "<td>".$row['COL 23']."</td>";
+
 
 
          echo "</tr>";
