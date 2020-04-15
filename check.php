@@ -28,6 +28,7 @@ try{
 	$stmt->execute(null);
 	$res = "";
 	$i=1;
+	$dns_err=0;
 
 
     ?>
@@ -44,7 +45,7 @@ try{
 </div>
 </div>
 
-<table class="table table-striped table-inverse table-responsive">
+ <table id="fav-table" class="table table-bordered">
   <thead class="thead-inverse">
     <tr>
       <th>No</th>
@@ -76,13 +77,21 @@ try{
 
 	try{	
   	$pdo2 = new PDO($dnsinfo,$USER,$PW);
-	$sql2 = "INSERT INTO PRE (url_r,move_date,service) VALUES (:url_r,:move_date, :service)";
+	$sql2 = "INSERT INTO PRE (id,url_r,move_date,service) VALUES (:id,:url_r,:move_date, :service)";
 	$stmt2 = $pdo2->prepare($sql2);
-	$params2 = array(':url_r' => $row['COL24'],':move_date' => date("Y/m/d H:i:s"), ':service' => 'SAKURA_MAIN');
+	$params2 = array(':id' => $dns_err,':url_r' => $row['COL24'],':move_date' => date("Y/m/d H:i:s"), ':service' => 'SAKURA_MAIN');
 	print_r($params2);echo "<br>"; 
 	$stmt2->execute($params2);
-	//$res = "";
-			echo "<td>元気ですか！</td>"; 
+	$res = $row['COL24'];
+	$sql = "DELETE FROM TABLE1 WHERE url_r =$res";
+	$stmt = $pdo->prepare($sql);
+	//$stmt->execute(null);
+
+		$dns_err++;
+		
+
+		
+		
 	}catch(Exception $e){
     echo $e->getMessage();
 }
@@ -90,7 +99,7 @@ try{
 
 		 echo "</tr>"; 
 		  
-         if($i==99999){
+         if($i==9999999999999){
          break;
         }
 	$i++;

@@ -5,9 +5,11 @@ $PW= 'amo22726';
 $dnsinfo= "mysql:dbname=manabou_list;host=mysql2105.xserver.jp;charset=utf8";
 $pdo = new PDO($dnsinfo,$USER,$PW);
 
-$sql = "TRUNCATE TABLE1";
-$result = $pdo -> query($sql);
-$sql = "TRUNCATE PRE";
+$sql = "DELETE FROM PRE WHERE No NOT IN (
+    SELECT move_date FROM (
+        SELECT MAX(move_date) move_date FROM PRE GROUP BY url_r
+    ) tmp
+);";
 $result = $pdo -> query($sql);
 
 //クエリー失敗

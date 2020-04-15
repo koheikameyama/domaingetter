@@ -21,14 +21,6 @@ try{
 <?php include('./head.php');?>
 
 
-<div class="container-fluid mb-2">
-
-	  <div class="row">
-	    <div class="col-4"></div>
-	    <div class="col-4"></div>
-	    <div class="col-4"><form type="button" class="btn btn-info"　method="post" action="db_drop.php">データベース削除<input type="submit" name="s" value="実行"></form></div>
-	   </div>
-</div>
 
 <table class="table table-striped table-inverse table-responsive">
   <thead class="thead-inverse">

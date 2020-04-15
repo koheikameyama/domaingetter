@@ -34,20 +34,29 @@ try{
 <?php include('./head.php');?>
 
 
-<div class="container-fluid">
+
+<div class="container-fluid mb-2">
+  
   <div class="row">
-
-<div class="progress">
-  <div class="progress-bar" role="progressbar" style="width: 41%" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100"></div>
+	    <div class="col-4"></div>
+	    <div class="col-4"></div>
+	    <div class="col-4"><form type="button" class="btn btn-info"　method="post" action="db_dpp.php">データベース重複削除<input type="submit" name="s" value="実行"></form></div>
+	   </div>
 </div>
-
-</div>
-</div>
-
-<table class="table table-striped table-inverse table-responsive">
+<div class="card-body">
+	 <caption>My Favorite Album</caption>
+ <table id="fav-table" class="table table-bordered sort-table">
   <thead class="thead-inverse">
 	  <tr>
-	  
+		  <th>
+		    過去履歴</th>
+		  <th>Add Date</th>
+		  <th>URL</th>
+		  <th>Check</th>
+		  <th>過去履歴</th>
+
+
+		  
 	  </tr>
 
     </thead>
@@ -62,8 +71,21 @@ try{
 
         echo "<td>".$row['move_date']."</td>";
         echo "<td>".$row['url_r']."</td>";
+	
+  echo <<<EOT
+  <td>
+  			<form method=".post." action="">
+			<input type="checkbox" name="food[]" value="寿司"> ブラックリスト
+			<input type="checkbox" name="food[]" value="天ぷら"> コメントスパム
+			<input type="checkbox" name="food[]" value="芸者"> ２オーナー
+			</form>
+	</td>
+EOT;
+		  
+		  $url="http://archive.org/wayback/available?url=".$row['url_r']."";
+		  echo "<td>".$url."</td>";
+			  
 
- 
 
          echo "</tr>";
          if($i==99999){
@@ -74,14 +96,11 @@ try{
   ?>
       
       <tr>
-        <td scope="row"></td>
-        <td></td>
-        <td></td>
+
       </tr>
     </tbody>
 </table>
-
-
+</div>
 
 </div>
 

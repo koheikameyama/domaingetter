@@ -20,6 +20,20 @@
 
   <script src="js/popper.min.js"></script>
     <link rel="stylesheet" href="style.css">
+
+<script>
+$(function(){
+    $('.sort-table').tablesorter({
+        textExtraction: function(node){
+            var attr = $(node).attr('data-value');
+            if(typeof attr !== 'undefined' && attr !== false){
+                return attr;
+            }
+            return $(node).text();
+        }
+    });
+});
+</script>
 </head>
   <body>
   <div id="wrapper">
@@ -42,7 +56,7 @@
         <a class="nav-link" href="pre_list.php">取得可能リスト</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="list.php">リスト</a>
+        <a class="nav-link" href="check.php">チェック</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="imp.php">CSVアップロード</a>
