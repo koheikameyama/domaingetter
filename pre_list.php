@@ -40,7 +40,7 @@ try{
   <div class="row">
 	    <div class="col-4"></div>
 	    <div class="col-4"></div>
-	    <div class="col-4"><form type="button" class="btn btn-info"　method="post" action="db_dpp.php">データベース重複削除<input type="submit" name="s" value="実行"></form></div>
+	    <div class="col-4"><form type="button" class="btn btn-info"　method="post" action="db_dpp.php">データベース削除<input type="submit" name="s" value="実行"></form></div>
 	   </div>
 </div>
 <div class="card-body">

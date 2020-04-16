@@ -23,7 +23,7 @@ $dnsinfo= "mysql:dbname=manabou_list;host=mysql2105.xserver.jp;charset=utf8";
 
 try{
   $pdo = new PDO($dnsinfo,$USER,$PW);
-	$sql = "SELECT DISTINCT COL24 FROM TABLE1";
+	$sql = "SELECT * FROM TABLE1";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute(null);
 	$res = "";
@@ -73,20 +73,25 @@ try{
         $tom=stra($url);
 		  echo "<td>".$tom."</td>";
 
+		//ステータスコードが0の場合
 		if(stra($url)==0){
 
-	try{	
-  	$pdo2 = new PDO($dnsinfo,$USER,$PW);
-	$sql2 = "INSERT INTO PRE (id,url_r,move_date,service) VALUES (:id,:url_r,:move_date, :service)";
-	$stmt2 = $pdo2->prepare($sql2);
-	$params2 = array(':id' => $dns_err,':url_r' => $row['COL24'],':move_date' => date("Y/m/d H:i:s"), ':service' => 'SAKURA_MAIN');
-	print_r($params2);echo "<br>"; 
-	$stmt2->execute($params2);
-	$res = $row['COL24'];
-	$sql = "DELETE FROM TABLE1 WHERE url_r =$res";
-	$stmt = $pdo->prepare($sql);
-	//$stmt->execute(null);
-
+		try{	
+		
+		//PREテーブルに各種データを移動
+		$sql2 = "INSERT INTO PRE (id,url_r,move_date,service) VALUES (:id,:url_r,:move_date, :service)";
+		$stmt2 = $pdo->prepare($sql2);
+		$params2 = array(':id' => $dns_err,':url_r' => $row['COL24'],':move_date' => date("Y/m/d H:i:s"), ':service' => 'SAKURA_MAIN');
+		print_r($params2);echo "<br>"; 
+		$stmt2->execute($params2);
+		
+		//移動なのでそのURLが含まれるデータを削除したい
+		$sql3 = "DELETE FROM TABLE1 WHERE url_r='" . $url . "';
+		SELECT * FROM TABLE1";
+		$stmt3 = $pdo->prepare($sql3);
+		$stmt3->execute(null);
+		print_r($stmt3);
+	
 		$dns_err++;
 		
 
@@ -95,13 +100,13 @@ try{
 	}catch(Exception $e){
     echo $e->getMessage();
 }
-		  }
+		  }//endif1
 
 		 echo "</tr>"; 
 		  
-         if($i==9999999999999){
+         if($i==50){
          break;
-        }
+        }//endif2
 	$i++;
       }//endwhile
   ?>
