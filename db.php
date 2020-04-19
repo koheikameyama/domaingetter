@@ -32,7 +32,7 @@ try{
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
         echo "<tr>";   
-		echo "<td>".$row['COL 1']."</td>";
+		echo "<td>".$row['COL1']."</td>";
 		//echo "<td>".$row['COL 2']."</td>";
 		//echo "<td>".$row['COL 3']."</td>";
 		//echo "<td>".$row['COL 4']."</td>";

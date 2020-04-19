@@ -1,5 +1,5 @@
 <?php
-
+ini_set('max_execution_time', 90000);
 function stra($url) {
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_HEADER, true);    // we want headers
@@ -51,7 +51,7 @@ try{
       <th>No</th>
       <th>URL</th>
       <th>ステータスコード</th>
-      <th>正規化URL</th>
+      <th>ステータスコード</th>
       <th>ステータスコード</th>
     </tr>
     </thead>
@@ -61,7 +61,7 @@ try{
       while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 
         echo "<tr>";   
-		echo "<td>".$row['COL 1']."</td>";
+		echo "<td>".$i."</td>";
         $url = $row['COL10']."<br>";
         echo "<td>".$url."</td>";
         //ステータスコードを表示させる関数
@@ -72,7 +72,14 @@ try{
         //ステータスコードを表示させる関数
         $tom=stra($url);
 		  echo "<td>".$tom."</td>";
+// 現在の時刻
+//echo date('h:i:s') . "\n";
 
+// 10 秒間遅延させる
+sleep(0.5);
+
+// 再開!
+// echo date('h:i:s') . "\n";
 		//ステータスコードが0の場合
 		if(stra($url)==0){
 
@@ -82,15 +89,14 @@ try{
 		$sql2 = "INSERT INTO PRE (id,url_r,move_date,service) VALUES (:id,:url_r,:move_date, :service)";
 		$stmt2 = $pdo->prepare($sql2);
 		$params2 = array(':id' => $dns_err,':url_r' => $row['COL24'],':move_date' => date("Y/m/d H:i:s"), ':service' => 'SAKURA_MAIN');
-		print_r($params2);echo "<br>"; 
+		//print_r($params2);echo "<br>"; 
 		$stmt2->execute($params2);
-		
+	    $url=$row['COL24'];
 		//移動なのでそのURLが含まれるデータを削除したい
-		$sql3 = "DELETE FROM TABLE1 WHERE url_r='" . $url . "';
-		SELECT * FROM TABLE1";
+		$sql3 = "DELETE FROM TABLE1 WHERE COL24 = '$url'";
 		$stmt3 = $pdo->prepare($sql3);
 		$stmt3->execute(null);
-		print_r($stmt3);
+		echo "<td>移動OK</td>";
 	
 		$dns_err++;
 		
@@ -104,7 +110,7 @@ try{
 
 		 echo "</tr>"; 
 		  
-         if($i==50){
+         if($i==9999999){
          break;
         }//endif2
 	$i++;

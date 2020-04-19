@@ -44,14 +44,14 @@ try{
 	   </div>
 </div>
 <div class="card-body">
-	 <caption>My Favorite Album</caption>
+	
  <table id="fav-table" class="table table-bordered sort-table">
   <thead class="thead-inverse">
 	  <tr>
 		  <th>
-		    過去履歴</th>
-		  <th>Add Date</th>
+		    追加日時</th>
 		  <th>URL</th>
+
 		  <th>Check</th>
 		  <th>過去履歴</th>
 
@@ -70,8 +70,9 @@ try{
 
 
         echo "<td>".$row['move_date']."</td>";
-        echo "<td>".$row['url_r']."</td>";
-	
+		
+        echo "<td><a href=".$row['url_r'].">".$row['url_r']."</a></td>";
+
   echo <<<EOT
   <td>
   			<form method=".post." action="">
@@ -84,7 +85,7 @@ EOT;
 		  
 		  $url="http://archive.org/wayback/available?url=".$row['url_r']."";
 		  echo "<td>".$url."</td>";
-			  
+
 
 
          echo "</tr>";

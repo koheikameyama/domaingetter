@@ -1,6 +1,6 @@
 <?php
 include "head.php";
-
+ini_set('max_execution_time', 90000);
 function stra($url) {
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_HEADER, true);    // we want headers
@@ -131,7 +131,17 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
 		//print_r($row);
 		print_r($row);
 		echo "!<br>";
+		
+				//バリデータ
+		$sql3 = "DELETE FROM TABLE1 WHERE COL24 = '$url'";
+		$stmt3 = $pdo->prepare($sql3);
+		$stmt3->execute(null);
+				
 			
+		//バリデータ
+		$sql3 = "DELETE FROM TABLE1 WHERE COL1 = '#'";
+		$stmt3 = $pdo->prepare($sql3);
+		$stmt3->execute(null);
 				
 				
 				
