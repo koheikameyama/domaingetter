@@ -33,6 +33,13 @@ $(function(){
         }
     });
 });
+	
+$(function(){
+$("#button").click(function(){
+$(this).toggleClass('on');　←class="on"を追加／削除
+$("#text").toggle('fast');　←fastを追加で滑らかに表示／非表示
+});
+});
 </script>
 </head>
   <body>
@@ -46,8 +53,9 @@ $(function(){
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+ <h1>サブドメゲッター</h1>    
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 10px;">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">トップページ <span class="sr-only">(current)</span></a>
@@ -70,7 +78,7 @@ $(function(){
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button id="search_button" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>

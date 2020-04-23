@@ -69,7 +69,13 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
                 PDO::ATTR_EMULATE_PREPARES => false,
             )
         );
-        $stmt = $pdo->prepare('INSERT INTO TABLE1 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+		
+		
+		
+		
+		
+		$stmt = $pdo->prepare('INSERT INTO TABLE1 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+
 
         /* トランザクション処理 */
         $pdo->beginTransaction();
@@ -94,43 +100,44 @@ if (isset($_FILES['upfile']['error']) && is_int($_FILES['upfile']['error'])) {
 
 
 		$url=$row[9];
-		echo $url;
+		//echo $url;echo "!<br>";
 		//URLをパースして分解する
         $parse_url=parse_url($url);
-		$main_sub="sakura";
+		//print_r ($parse_url);echo "!(パース後)<br>";
+		//$main_sub="sakura";
 
         //$parse_url["host"]にドメイン・サブドメインの部分がパースされて格納される
-        $ar_host = array_reverse(explode('.',$parse_url["host"]));
-        $ht = array_reverse(explode('.',$parse_url["scheme"]));
-        $ar_host[1]=$ar_host[1].'.'.$ar_host[0];
+        //$ar_host = array_reverse(explode('.',$parse_url["host"]));
+		$ar_host = $parse_url["host"];
+        $ht = $parse_url["scheme"];
+	
+				
+        //$ar_host[1]=$ar_host[1].'.'.$ar_host[0];
 		
-        unset($ar_host[0]);
-		
-		if ($ar_host[2]==$main_sub){
-			//print_r ($ar_host);
-			//print_r($ht);
-			//print_r($ar_host);
-			    $url_merge = array_merge($ht, $ar_host);
+        //unset($ar_host[0]);
+				
+			print_r ($ar_host);
+			echo "<br>";
+			print_r($ht);
+			echo "<br>";
+
+
+
 				
         		$hs="://";
         		$hs2=".";
         		$hs3="/";
-        		$pieces = [$url_merge[0],$hs,$url_merge[3],$hs2, $url_merge[2],$hs2, $url_merge[1],$hs3];
-		}
-		else {
-        //配列を結合する
-         		$url_merge = array_merge($ht, $ar_host);
-         		$hs="://";
-         		$hs2=".";
-         		$hs3="/";
-        		$pieces = [$url_merge[0],$hs, $url_merge[2],$hs2, $url_merge[1],$hs3];
-		}
+        		$pieces = [$ht,$hs,$ar_host,$hs3];
+
+
 		$url=implode($pieces);
+				
 		//最後尾に正規化したデータをpush
 		array_push($row, $url);
 		//print_r($row);
-		print_r($row);
-		echo "!<br>";
+		
+		//echo $url."!<br>";
+
 		
 				//バリデータ
 		$sql3 = "DELETE FROM TABLE1 WHERE COL24 = '$url'";

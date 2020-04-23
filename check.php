@@ -1,5 +1,5 @@
 <?php
-ini_set('max_execution_time', 90000);
+
 function stra($url) {
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_HEADER, true);    // we want headers
@@ -65,6 +65,7 @@ try{
         $url = $row['COL10']."<br>";
         echo "<td>".$url."</td>";
         //ステータスコードを表示させる関数
+
         //stra($url);
 		$url = $row['COL24']."<br>";
         echo "<td>".$url."</td>";
@@ -76,7 +77,7 @@ try{
 //echo date('h:i:s') . "\n";
 
 // 10 秒間遅延させる
-sleep(0.5);
+//sleep(1.5);
 
 // 再開!
 // echo date('h:i:s') . "\n";
