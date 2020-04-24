@@ -82,7 +82,7 @@ try{
 // 再開!
 // echo date('h:i:s') . "\n";
 		//ステータスコードが0の場合
-		if(stra($url)==0){
+		if($tom==0){
 
 		try{	
 		
@@ -111,7 +111,7 @@ try{
 
 		 echo "</tr>"; 
 		  
-         if($i==9999999){
+         if($i==900){
          break;
         }//endif2
 	$i++;

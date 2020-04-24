@@ -10,6 +10,8 @@ $dnsinfo= "mysql:dbname=manabou_list;host=mysql2105.xserver.jp;charset=utf8";
 	$pdo = new PDO($dnsinfo,$USER,$PW);
 	
 	try{
+		
+		
 	echo $url;
   	$pdo = new PDO($dnsinfo,$USER,$PW);
 	$sql = "SELECT * FROM TABLE1";
@@ -18,6 +20,8 @@ $dnsinfo= "mysql:dbname=manabou_list;host=mysql2105.xserver.jp;charset=utf8";
 	$res = "";
 	$i=1;
 	$dns_err=0;
+		
+		
 	}
 	
 	

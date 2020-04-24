@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name=".htaccess" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132318592492717474" remote="132318592200000000" Dst="0" />
+<file name=".htaccess" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132318592492717474" remote="132320985000000000" Dst="0" />
 <file name="README.md" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132308900080029150" remote="132306951600000000" Dst="0" />
 <file name="config.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132320933889205999" remote="132320933400000000" Dst="0" />
 <file name="db.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132315766660700470" remote="132315766200000000" Dst="0" />
-<file name="footer.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132319936591463338" remote="132319936200000000" Dst="0" />
-<file name="head.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132318554296575630" remote="132318553800000000" Dst="0" />
+<file name="footer.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132322112450720786" remote="132322112400000000" Dst="0" />
+<file name="head.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132322121196345205" remote="132322120800000000" Dst="0" />
 <file name="imp.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132318234179345049" remote="132318234000000000" Dst="0" />
-<file name="style.css" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132320959376949563" remote="132320959200000000" Dst="0" />
+<file name="style.css" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132322123766274220" remote="132322123200000000" Dst="0" />
 <file name="index.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132309991962523541" remote="132309991800000000" Dst="0" />
 <file name="db_drop.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132313446732766137" remote="132313446600000000" Dst="0" />
 <file name="db_config.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132310026124723193" remote="132310026000000000" Dst="0" />
-<file name="pre_list.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132320949745696079" remote="132320949600000000" Dst="0" />
+<file name="pre_list.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132322129758444170" remote="132322129200000000" Dst="0" />
 <file name="db_dpp.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132314319913562528" remote="132314319600000000" Dst="0" />
-<file name="check.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132320923743888682" remote="132320923200000000" Dst="0" />
-<file name="ajax.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132319432887545447" remote="132319432800000000" Dst="0" />
+<file name="check.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132322091483770579" remote="132322091400000000" Dst="0" />
+<file name="ajax.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132322089721670056" remote="132322089600000000" Dst="0" />
 <file name="main.js" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132319467062392031" remote="132319467000000000" Dst="0" />
 <file name="black_list.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132319933982674714" remote="132319933800000000" Dst="0" />
+<file name="ajax2.php" server="sv2122.xserver.jp//manabou.xsrv.jp/public_html/tool/" local="132322089642216135" remote="132322089600000000" Dst="0" />
 </dwsync>
