@@ -46,7 +46,7 @@ table {
 }
 
 .toto{
-    display: none;
+     /*display: none;*/
 }
 
 .toto.show{

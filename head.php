@@ -71,12 +71,7 @@ $(function(){
     });
 });
 	
-$(function(){
-$("#button").click(function(){
-$(this).toggleClass('on');　←class="on"を追加／削除
-$("#text").toggle('fast');　←fastを追加で滑らかに表示／非表示
-});
-});
+
 </script>
 </head>
   <body>
@@ -106,6 +101,9 @@ $("#text").toggle('fast');　←fastを追加で滑らかに表示／非表示
       <li class="nav-item">
         <a class="nav-link" href="check.php">チェック</a>
       </li>
+	<li class="nav-item">
+        <a class="nav-link" href="check2.php">取得可能リスト再チェック</a>
+      </li>ss
       <li class="nav-item">
         <a class="nav-link" href="imp.php">CSVアップロード</a>
       </li>
