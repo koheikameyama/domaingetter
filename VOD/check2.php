@@ -23,11 +23,11 @@ $dnsinfo= "mysql:dbname=manabou_list;host=mysql2105.xserver.jp;charset=utf8";
 
 try{
   $pdo = new PDO($dnsinfo,$USER,$PW);
-	$sql = "SELECT * FROM TABLE1";
+	$sql = "SELECT * FROM PRE";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute(null);
 	$res = "";
-	$i=1200;
+	$i=8892;
 	$dns_err=0;
 
 
@@ -62,12 +62,12 @@ try{
 
         echo "<tr>";   
 		echo "<td>".$i."</td>";
-        $url = $row['COL10'];
+        $url = $row['url_r'];
         echo "<td>".$url."</td>";
         //ステータスコードを表示させる関数
 
         //stra($url);
-		$url = $row['COL24'];
+		$url = $row['url_r'];
         echo "<td>".$url."</td>";
 
         //ステータスコードを表示させる関数
@@ -82,19 +82,19 @@ try{
 // 再開!
 // echo date('h:i:s') . "\n";
 		//ステータスコードが0の場合
-		if($tom==0){
+		if($tom!==0){
 
 		try{	
 		
 		//PREテーブルに各種データを移動
-		$sql2 = "INSERT INTO PRE (id,url_r,move_date,service) VALUES (:id,:url_r,:move_date, :service)";
+		$sql2 = "INSERT INTO TABLE1 (COL1,COL24,COL15,COL18) VALUES (:COL1,:COL24,:COL15,:COL18)";
 		$stmt2 = $pdo->prepare($sql2);
-		$params2 = array(':id' => $dns_err,':url_r' => $row['COL24'],':move_date' => date("Y/m/d H:i:s"), ':service' => 'SAKURA_MAIN');
-		//print_r($params2);echo "<br>"; 
+		$params2 = array(':COL1' => $dns_err,':COL24' => $row['url_r'],':COL15' => date("Y/m/d H:i:s"), ':COL18' => 'RENEW');
+		print_r($params2);echo "<br>"; 
 		$stmt2->execute($params2);
-	    $url=$row['COL24'];
+	    $url=$row['url_r'];
 		//移動なのでそのURLが含まれるデータを削除したい
-		$sql3 = "DELETE FROM TABLE1 WHERE COL24 = '$url'";
+		$sql3 = "DELETE FROM PRE WHERE url_r = '$url'";
 		$stmt3 = $pdo->prepare($sql3);
 		$stmt3->execute(null);
 		echo "<td>移動OK</td>";
@@ -111,7 +111,7 @@ try{
 
 		 echo "</tr>"; 
 		  
-         if($i==5000){
+         if($i==150000){
          break;
         }//endif2
 	$i++;

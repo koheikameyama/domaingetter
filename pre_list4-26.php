@@ -73,19 +73,16 @@ try {
             </thead>
             <tbody>
 
-              <?php
-              echo <<<EOT
-EOT;
+<?php
+
 
               $swn = 1; //スイッチナンバー
               while ( $row = $stmt->fetch( PDO::FETCH_ASSOC ) ) {
 
                 if ( $swn % 2 != 0 ) {
-                  if ( $row[ 'black' ] == 0 or $row[ 'black' ] == NULL ) {echo "<tr id=\"output$swn\" class=\"table-primary\">";}
-					elseif ( $row[ 'black' ] == 1 ) {echo "<tr id=\"output$swn\" class=\"table-primary toto\">";}
+                  echo "<tr id=\"output$swn\" class=\"table-primary\">";
                 } else {
-                   if ( $row[ 'black' ] == 0 or $row[ 'black' ] == NULL ) {echo "<tr id=\"output$swn\" class=\"table-secondary\">";}
-					elseif ( $row[ 'black' ] == 1 ) {echo "<tr id=\"output$swn\" class=\"table-secondary toto\">";}
+                  echo "<tr id=\"output$swn\" class=\"table-secondary\">";
 
                 }
 
@@ -141,7 +138,7 @@ EOT;
                 $i++;
               } //endwhile
               ?>
-              <tr> </tr>
+             
             </tbody>
           </table>
         </div>

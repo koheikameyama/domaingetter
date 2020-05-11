@@ -50,9 +50,9 @@ try {
           <div class="col-lg-12 mt-3">
             <div class="bs-component">
               <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center"> 取得可能ドメイン <span class="badge badge-primary badge-pill">14</span> </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center"> 取得済みドメイン <span class="badge badge-primary badge-pill">2</span> </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center"> ブラックリストドメイン <span class="badge badge-primary badge-pill">1</span> </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center"> 公開VODリスト <span class="badge badge-primary badge-pill">14</span> </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center"> 非公開VODリスト <span class="badge badge-primary badge-pill">2</span> </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center"> 削除済み <span class="badge badge-primary badge-pill">1</span> </li>
               </ul>
             </div>
           </div>
@@ -63,12 +63,12 @@ try {
             <thead class="thead-inverse">
               <tr>
                 <th>No</th>
+				 <th>タイトル画像</th>
                 <th>追加日時</th>
-                <th>URL</th>
-                <th>ステータスコード</th>
-                <th>Check</th>
-                <th>過去履歴</th>
-                <th>Ahref</th>
+                <th>VODタイトル</th>
+                <th>あらすじなど</th>   
+                <th>主演</th>
+                <th>リンクコード</th>
               </tr>
             </thead>
             <tbody>

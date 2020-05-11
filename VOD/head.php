@@ -147,7 +147,7 @@ else if (customSwitch.checked == true){
 	<div class="row">
       <div class="col-lg-12">
         <div class="page-header">
-          <h1 id="navbars">サブドメゲッター</h1>
+          <h1 id="navbars">VODサイト管理ツール</h1>
         </div>
 
         <div class="bs-component">
@@ -161,13 +161,7 @@ else if (customSwitch.checked == true){
     <ul class="navbar-nav mr-auto">
 
 	  <li class="nav-item">
-        <a class="nav-link" href="pre_list.php">取得可能リスト</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="check.php">チェック</a>
-      </li>
-	<li class="nav-item">
-        <a class="nav-link" href="check2.php">取得可能リスト再チェック</a>
+        <a class="nav-link" href="pre_list.php">映画リスト</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="imp.php">CSVアップロード</a>
