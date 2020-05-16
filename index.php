@@ -18,8 +18,8 @@ function stra($url) {
 //DBに接続する。
 $USER= 'manabou_list';
 $PW= 'amo22726';
-$dnsinfo= "mysql:dbname=manabou_list;host=mysql2105.xserver.jp;charset=utf8";
-
+$dnsinfo= "mysql:dbname=manabou_list;host=localhost;charset=utf8";
+//qqqqq
 
 
 try{
